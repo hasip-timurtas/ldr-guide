@@ -1,0 +1,6 @@
+@mixin content-title {
+  background-image: $gradient-white;
+  color: $title-color;
+  padding: $title-padding;
+  border-radius: 5px;
+}

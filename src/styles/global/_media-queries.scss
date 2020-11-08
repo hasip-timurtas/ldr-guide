@@ -1,0 +1,314 @@
+/**
+ * 
+ * Media Queries
+ *
+ */
+
+// https://davidwalsh.name/write-media-queries-sass
+
+$phone: "(max-width: 480px)";
+$tablet: "(min-width: 481px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+
+// iPhone 5/5c/5s/SE
+$phone-small-width: 320px;
+$phone-width: 568px;
+$tablet-width: 768px;
+$desktop-small-width: 1024px;
+$desktop-middle-width: 1440px;
+$desktop-midlarge-width: 1680px;
+$desktop-large-width: 1920px;
+
+// to 320px
+@mixin small-phone-portrait {
+  @media (max-width: #{$phone-small-width}) {
+    @content;
+  }
+}
+
+// to 568px
+@mixin small-phone {
+  @media (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+// 321px to 567px
+@mixin small-phone-landscape {
+  @media (min-width: #{$phone-small-width + 1px}) and (max-width: #{$phone-width - 1px}) {
+    @content;
+  }
+}
+
+// from 567px
+@mixin small-phone-landscape-from {
+  @media (min-width: #{$phone-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin iphone-landscape {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// 569px to 767px
+@mixin phone {
+  @media (min-width: #{$phone-width + 1px}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+// to 568
+@mixin phone-to {
+  @media (max-width: #{$phone-width}) {
+    @content;
+  }
+}
+
+// from 569
+@mixin phone-from {
+  @media (min-width: #{$phone-width + 1px}) {
+    @content;
+  }
+}
+
+// to 768px
+@mixin tablet-to {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+// from 769px
+@mixin tablet-from {
+  @media (min-width: #{$tablet-width + 1px}) {
+    @content;
+  }
+}
+
+// from 768 to 1023
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-small-width - 1px}) {
+    @content;
+  }
+}
+
+// to 1024
+@mixin desktop-small-to {
+  @media (max-width: #{$desktop-small-width}) {
+    @content;
+  }
+}
+
+// from 1025
+@mixin desktop-small-from {
+  @media (min-width: #{$desktop-small-width + 1px}) {
+    @content;
+  }
+}
+
+// between 1025 and 1440
+@mixin desktop-small {
+  @media (min-width: #{$desktop-small-width + 1px}) and (max-width: #{$desktop-middle-width}) {
+    @content;
+  }
+}
+
+// to 1339px
+@mixin desktop-from-middle-to {
+  @media (max-width: #{$desktop-middle-width - 1px}) {
+    @content;
+  }
+}
+
+// to 1440px
+@mixin desktop-middle-to {
+  @media (max-width: #{$desktop-middle-width}) {
+    @content;
+  }
+}
+
+// from 1441px
+@mixin desktop-middle-from {
+  @media (min-width: #{$desktop-middle-width + 1px}) {
+    @content;
+  }
+}
+
+// to 1656px
+@mixin desktop-midlarge-to {
+  @media (max-width: #{$desktop-midlarge-width}) {
+    @content;
+  }
+}
+
+// from 1657px
+@mixin desktop-midlarge-from {
+  @media (min-width: #{$desktop-midlarge-width + 1px}) {
+    @content;
+  }
+}
+
+// to 1920px
+@mixin desktop-large-to {
+  @media (max-width: #{$desktop-large-width }) {
+    @content;
+  }
+}
+
+// from 1921px
+@mixin desktop-large-from {
+  @media (min-width: #{$desktop-large-width + 1px}) {
+    @content;
+  }
+}
+
+@mixin orientation-portrait {
+  @media screen and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin orientation-landscape {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+// Testing helpers
+
+@mixin show-query($background, $text) {
+  background: $background;
+
+  &:before {
+    content: $text;
+    font-size: 24px;
+    position: fixed;
+    z-index: 100;
+  }
+}
+
+@mixin media-queries-test {
+  body {
+    @include small-phone-portrait {
+      @include show-query(
+        $background: blue,
+        $text: "small-phone-portrait: (max-width: #{$phone-small-width})"
+      );
+    }
+
+    // @include small-phone {
+    //   @include show-query(
+    //     $background: brown,
+    //     $text: 'small-phone: (max-width: #{$phone-width})'
+    //   )
+    // }
+
+    // @include small-phone-landscape {
+    //   @include show-query(
+    //     $background: red,
+    //     $text: 'small-phone-landscape-from: (min-width: #{$phone-small-width + 1px}) and (max-width: #{$phone-width - 1px})'
+    //   )
+    // }
+
+    // @include small-phone-landscape-from {
+    //   @include show-query(
+    //     $background: yellow,
+    //     $text: 'small-phone-landscape-from: (min-width: #{$phone-width - 1px})'
+    //   )
+    // }
+
+    // @include phone {
+    //   @include show-query(
+    //     $background: green,
+    //     $text: 'phone: (min-width: #{$phone-width + 1px}) and (max-width: #{$tablet-width - 1px})'
+    //   )
+    // }
+
+    // @include phone-to {
+    //   @include show-query(
+    //     $background: deeppink,
+    //     $text: 'phone-to: (max-width: #{$phone-width})'
+    //   )
+    // }
+
+    // @include phone-from {
+    //   @include show-query(
+    //     $background: darkblue,
+    //     $text: 'phone-from: (min-width: #{$phone-width + 1px})'
+    //   )
+    // }
+
+    // @include tablet-to {
+    //   @include show-query(
+    //     $background: cadetblue,
+    //     $text: 'tablet-to: (max-width: #{$tablet-width})'
+    //   )
+    // }
+
+    // @include tablet-from {
+    //   @include show-query(
+    //     $background: brown,
+    //     $text: 'tablet-from: (min-width: #{$tablet-width + 1px})'
+    //   )
+    // }
+
+    // @include tablet {
+    //   @include show-query(
+    //     $background: coral,
+    //     $text: 'tablet: (min-width: #{$tablet-width}) and (max-width: #{$desktop-small-width - 1px})'
+    //   )
+    // }
+
+    // @include tablet {
+    //   @include show-query(
+    //     $background: coral,
+    //     $text: 'tablet: (min-width: #{$tablet-width}) and (max-width: #{$desktop-small-width - 1px})'
+    //   )
+    // }
+
+    // @include desktop-small-to {
+    //   @include show-query(
+    //     $background: chocolate,
+    //     $text: 'desktop small to: (max-width: #{$desktop-small-width})'
+    //   )
+    // }
+
+    // @include desktop-small-from {
+    //   @include show-query(
+    //     $background: maroon,
+    //     $text: 'desktop small from: (min-width: #{$desktop-small-width + 1px})'
+    //   )
+    // }
+
+    // @include desktop-small {
+    //   @include show-query(
+    //     $background: orange,
+    //     $text: 'desktop small: (min-width: #{$desktop-small-width + 1px}) and (max-width: #{$desktop-middle-width})'
+    //   )
+    // }
+
+    // @include desktop-middle-to {
+    //   @include show-query(
+    //     $background: blue,
+    //     $text: 'desktop middle to: (max-width: #{$desktop-middle-width})'
+    //   )
+    // }
+
+    // @include desktop-middle-from {
+    //   @include show-query(
+    //     $background: yellow,
+    //     $text: 'desktop middle: (min-width: #{$desktop-middle-width + 1px})'
+    //   )
+    // }
+
+    // @include desktop-large-from {
+    //   @include show-query(
+    //     $background: green,
+    //     $text: 'desktop large: (min-width: #{$desktop-large-width + 1px})'
+    //   )
+    // }
+  }
+}
