@@ -4,6 +4,8 @@ http://95.179.209.108:8085
 
 ## Project setup
 
+Comitler sayılıyormu diye kontrol
+
 ```
 npm install
 ```
