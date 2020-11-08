@@ -1,6 +1,6 @@
-# finans
+# LDR - GUIDE
 
-http://95.179.209.108:8081/#/
+http://95.179.209.108:8085
 
 ## Project setup
 
