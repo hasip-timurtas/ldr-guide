@@ -43,8 +43,7 @@ export default {
       this.setDialog({
         dialogName: "generalDialog",
         status: true,
-        dialogMessage:
-          "Kayıt işlemi şu anda yapılmamaktadır. Lütfen yetkili ile iletişime geçiniz."
+        dialogMessage: "Kayıt işlemi şu anda yapılmamaktadır. Lütfen yetkili ile iletişime geçiniz."
       });
     },
     login() {
@@ -60,6 +59,11 @@ export default {
     },
     logout() {
       this.signOut();
+    }
+  },
+  created() {
+    if (this.user) {
+      this.$router.push({ name: "Admin" });
     }
   }
 };

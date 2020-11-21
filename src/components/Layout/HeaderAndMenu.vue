@@ -1,12 +1,6 @@
 <template>
   <div>
-    <v-app-bar
-      class="header"
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
-      color="blue darken-3"
-      dark
-    >
+    <v-app-bar class="header" :clipped-left="$vuetify.breakpoint.lgAndUp" app color="blue darken-3" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title style="width: 300px;" class="ml-0 pl-4">
         <router-link to="/">
@@ -21,13 +15,7 @@
     <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
       <v-list dense>
         <template v-for="item in selectedMenu">
-          <v-list-item
-            v-if="!item.children"
-            :key="item.text"
-            :to="item.link"
-            link
-            @click="item.click ? item.click() : false"
-          >
+          <v-list-item v-if="!item.children" :key="item.text" :to="item.link" link @click="item.click ? item.click() : false">
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -35,13 +23,7 @@
               <v-list-item-title>{{ item.text }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-group
-            v-else
-            :key="item.text"
-            v-model="item.model"
-            :prepend-icon="item.model ? item.icon : item['icon-alt']"
-            append-icon
-          >
+          <v-list-group v-else :key="item.text" v-model="item.model" :prepend-icon="item.model ? item.icon : item['icon-alt']" append-icon>
             <template v-slot:activator>
               <v-list-item-content>
                 <v-list-item-title>{{ item.text }}</v-list-item-title>
@@ -118,7 +100,7 @@ export default {
 
   width: 100%;
   height: $header-height;
-  background-image: $gradient;
+  background-image: $gradient !important;
   //display: flex;
   //align-items: center;
   position: fixed;
