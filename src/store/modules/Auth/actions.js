@@ -38,7 +38,7 @@ export default {
           let userLevel = "admin";
           commit("SET_USER_LEVEL", userLevel);
           dispatch("common/setMenu", userLevel, { root: true });
-          router.push("/");
+          router.push("/admin");
         } else {
           dispatch("common/setError", response.data.message, { root: true });
           commit("SET_LOGGED_IN", false);
@@ -113,7 +113,7 @@ export default {
       commit("SET_USER", null);
       commit("SET_LOGGED_IN", false);
       commit("SET_USER_LEVEL", null);
-      router.push("/login");
+      router.push("/");
     });
   }
 };
