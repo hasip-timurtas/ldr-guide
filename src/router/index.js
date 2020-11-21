@@ -11,6 +11,11 @@ const routes = [
   {
     path: "/",
     name: "Home",
+    component: () => import("@/components/Pages/Construction")
+  },
+  {
+    path: "/admin",
+    name: "Admin",
     components: {
       default: () => import("@/components/Pages/Transactions/PendingTransactions"),
       headerAndMenu: HeaderAndMenu,

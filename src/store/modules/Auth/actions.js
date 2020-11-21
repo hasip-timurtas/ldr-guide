@@ -1,5 +1,6 @@
 import { auth } from "@/plugins/firebase";
 import router from "@/router/index";
+import axios from "axios";
 
 export default {
   async setUserName({ commit }, userName) {
@@ -19,6 +20,42 @@ export default {
   },
 
   async singIn({ commit, dispatch }, { email, pass }) {
+    axios
+      .post("https://api.payvolut.com/login", {
+        username: email,
+        pass: pass
+      })
+      .then((response) => {
+        console.log(response);
+        if (response.data.success) {
+          commit("SET_USER", {
+            userId: response.data.userId,
+            email: email
+          });
+          commit("SET_LOGGED_IN", true);
+
+          // Eğer user mail firma içeriyorsa userimiz firma, eğer içermiyorsa admin.
+          let userLevel = "admin";
+          commit("SET_USER_LEVEL", userLevel);
+          dispatch("common/setMenu", userLevel, { root: true });
+          router.push("/");
+        } else {
+          dispatch("common/setError", response.data.message, { root: true });
+          commit("SET_LOGGED_IN", false);
+        }
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/user-not-found":
+            dispatch("common/setError", "Kullanıcı adı veya şifre yanlış, lütfen bilgilerinizi kontrol edip tekrar deneyiniz.", { root: true });
+            break;
+          default:
+            dispatch("common/setError", err.message, { root: true });
+            break;
+        }
+        console.log(err);
+      });
+    /*
     auth
       .signInWithEmailAndPassword(email, pass)
       .then((data) => {
@@ -50,6 +87,7 @@ export default {
         }
         console.log(err);
       });
+      */
   },
 
   changePassword({ dispatch }, newPassword) {
