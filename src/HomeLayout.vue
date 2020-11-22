@@ -22,7 +22,7 @@
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
-      absolute
+      fixed
       bottom
       temporary
     >
