@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="pb-4">First Chapter</h2>
+    <v-img src="@/assets/chapter-1.png" max-width="300px" class="ma-auto" />
     <div class="hidden-sm-and-down">
       <iframe
         src="https://ldrguidebook.com/ldr-guide-first-chapter.pdf"

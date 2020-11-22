@@ -31,9 +31,20 @@ const routes = [
         path: "full-book",
         name: "FullBook",
         component: () => import("@/components/Pages/Home/FullBook")
+      },
+      {
+        path: "community",
+        name: "Community",
+        component: () => import("@/components/Pages/Home/Community")
+      },
+      {
+        path: "contact",
+        name: "Contact",
+        component: () => import("@/components/Pages/Home/Contact")
       }
     ]
   },
+  /*
   {
     path: "/admin",
     component: () => import("@/AdminLayout"),
@@ -164,11 +175,13 @@ const routes = [
       }
     ]
   },
+ 
   {
     path: "/login",
     name: "Login",
     component: () => import("@/components/Pages/Login")
   },
+
   {
     path: "/deposit-page/:id?",
     name: "DepositPage",
@@ -189,7 +202,7 @@ const routes = [
     name: "ApiExplorer",
     component: () => import("@/components/Pages/ApiExplorer/ApiExplorer")
   },
-
+  */
   {
     path: "*",
     name: "NotFound",

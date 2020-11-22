@@ -7,7 +7,8 @@
       class="home-header"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
+      <v-spacer></v-spacer>
+      <v-toolbar-title class="ml-0 pl-4 mr-12">
         <router-link to="/">
           <v-img
             src="@/assets/ldr-logo.png"
@@ -16,11 +17,14 @@
           ></v-img>
         </router-link>
       </v-toolbar-title>
+      <v-spacer></v-spacer>
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
-      app
+      absolute
+      bottom
+      temporary
     >
       <v-list dense>
         <template v-for="item in items">
@@ -80,7 +84,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
   }),
   created() {
     this.items = [
@@ -105,6 +109,16 @@ export default {
         text: "Full book",
         link: "/full-book",
         icon: "mdi-book-open-blank-variant",
+      },
+      {
+        text: "Community",
+        link: "/community",
+        icon: "mdi-account-group",
+      },
+      {
+        text: "Contact",
+        link: "/contact",
+        icon: "mdi-email-outline",
       },
     ];
   },
