@@ -1,6 +1,10 @@
 <template>
   <div class="text-center">
-    <h2 class="mt-10">Soon .. :)</h2>
+    <h2 class="mt-10">Price of the full book is only 7.5 $</h2>
+    <div class="pa-10">
+      <PayPal amount="7.50" currency="USD" :client="credentials" env="sandbox"> </PayPal>
+    </div>
+
     <v-img src="@/assets/book-chapters.png" max-width="300px" class="ma-auto" />
   </div>
 </template>

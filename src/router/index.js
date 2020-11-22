@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Footer from "@/components/Layout/Footer.vue";
-import HeaderAndMenu from "@/components/Layout/HeaderAndMenu.vue";
+//import Footer from "@/components/Layout/Footer.vue";
+//import HeaderAndMenu from "@/components/Layout/HeaderAndMenu.vue";
 import store from "@/store";
 import nProgress from "nprogress";
 
