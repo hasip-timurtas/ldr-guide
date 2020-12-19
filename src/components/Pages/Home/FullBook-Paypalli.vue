@@ -5,8 +5,8 @@
       <PayPal amount="7.50" currency="USD" :client="credentials" env="sandbox"> </PayPal>
     </div>
     <h3>
-      After you do the payment you will receive the book to your paypal email address. If you wan't to receive to another mail address. Please write
-      us on Instargram:
+      After you do the payment you will receive the book to your paypal email address. If you want to receive to another mail address. Please write
+      us on Instagram:
       <a href="https://www.instagram.com/ldrguide/">Here</a>
     </h3>
     <v-img src="@/assets/book-chapters.png" max-width="300px" class="ma-auto" />
