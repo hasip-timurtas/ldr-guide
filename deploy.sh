@@ -1,6 +1,3 @@
 #!/bin/bash
-npm run build
-cd dist
-zip -r dist.zip .
-#zip -r build/build.zip build/.
-unzip -o dist.zip -d /home/ldrguidebook/public_html
+yarn build
+scp -rp ./dist/* dist/.htaccess root@95.179.168.245:/home/ldrguidebook/public_html
