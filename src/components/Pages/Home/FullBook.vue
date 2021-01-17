@@ -3,7 +3,7 @@
     <h2 class="mt-10">Price of the full book is only 7.5 $</h2>
     <div class="pa-10">
       <PayPal
-        amount="7.50"
+        :amount="amount"
         currency="USD"
         :client="credentials"
         env="production"
@@ -28,12 +28,20 @@ export default {
   data() {
     return {
       credentials: {
+        amount: 7.5,
         sandbox:
           "AQsoDvd_zHW-cyXpNyPUa2dEtpeWOkbsPYb7bGZcXWu4bYk4c1mqQSgqH3WFE6gLwcPlz4E-XvHHxmY5",
         production:
           "ASWln5qx2YwovBa8WvBdM1prFz4TrxS14Gihz84riiTCZvoJTsVFOQD-ExwUu_7qVioLfa6TqsH5Q9V0",
       },
     };
+  },
+  created() {
+    const coupon = this.$route.query.coupon;
+
+    if (coupon === "VALENTINES") {
+      this.amount = 5;
+    }
   },
 };
 </script>
