@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <h2 class="mt-10">Price of the full book is only 7.5 $</h2>
+    <h2 class="mt-10">Price of the full book is ONLY {{ amount }} $</h2>
     <div class="pa-10">
       <PayPal
         :amount="amount"
@@ -27,8 +27,8 @@ export default {
   },
   data() {
     return {
+      amount: "7.50",
       credentials: {
-        amount: 7.5,
         sandbox:
           "AQsoDvd_zHW-cyXpNyPUa2dEtpeWOkbsPYb7bGZcXWu4bYk4c1mqQSgqH3WFE6gLwcPlz4E-XvHHxmY5",
         production:
@@ -38,9 +38,9 @@ export default {
   },
   created() {
     const coupon = this.$route.query.coupon;
-
+    console.log(coupon);
     if (coupon === "VALENTINES") {
-      this.amount = 5;
+      this.amount = "5";
     }
   },
 };
