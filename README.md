@@ -1,10 +1,8 @@
 # LDR - GUIDE
 
-http://95.179.209.108:8085
+Website source codes of https://ldrguidebook.com
 
 ## Project setup
-
-Comitler sayılıyormu diye kontrol
 
 ```
 npm install
