@@ -39,8 +39,8 @@ export default {
   created() {
     const coupon = this.$route.query.coupon;
     console.log(coupon);
-    if (coupon === "VALENTINES") {
-      this.amount = "5";
+    if (coupon === "PROMO6") {
+      this.amount = "6";
     }
   },
 };
